@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+    <html>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        <head>
+            <title>CORDIAL: Login</title>
+            <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
+            
+            <style>
+                img {
+                    display: block;
+                    width: 20%;
+                    margin: auto;
+                }
+
+                .container {
+                    width: 40%;
+                    padding: 3%;
+                    margin:auto;
+                    background-color: #ffffff;
+                    border-radius: 7px;
+                    border-style:ridge;
+                    border-width: 1px;
+                    border-color: rgb(1, 130, 153);
+                }
+
+                h3 {
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    text-align:center;
+                    color: rgb(1, 130, 153);
+                    font-size: 170%;
+                    margin: 0;
+                }
+
+                label{
+                    text-align: center;
+                    font-size: 80%;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-weight: 620;
+                    margin-left: 10px;
+                }
+
+                div {
+                    margin-left: 17px;
+                }
+                
+                .tyun {
+                    display: block;
+                    width: 91%;
+                    padding: 12px;
+                    border: 1px solid rgb(1, 130, 153);
+                    border-radius: 5px;
+                    margin: auto;
+                }
+
+                .kai {
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    display: block;
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid rgb(1, 130, 153);
+                    border-radius: 5px;
+                    background-color: #ffffff;
+                    margin: auto;
+                }
+
+                .tyunning {
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    display: block;
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #018299;
+                    border-radius: 5px;
+                    background-color: #c9e0ff;
+                    margin: auto;
+                }
+
+                a {
+                    display: block;
+                    text-align: center;
+                    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-size: 70%;
+                    color: rgb(29, 98, 155);
+                }
+
+            </style>
+
+            <body>
+                <br><br>
+                <img src="cordial logo.png" alt="logo">
+                <br><br>
+                
+                <div class = "container">
+                    <h3>USER LOGIN</h3>
+                    <form name="Login" action="login.php" method="POST">
+                        <label for="username">USERNAME:</label><br>
+                        <input type="text" id="username" name="username" class="tyun">
+                        <br>
+                        <label for="password">PASSWORD:</label><br>
+                        <input type="password" id="password" name="password" class="tyun">
+                        
+                        <br><br>
+                        <input type="submit" value="LOGIN" class="tyunning">
+                    </form>
+                        <br>
+                        <a href="signup.html"><strong>DON'T OWN AN ACCOUNT YET? SIGN UP</strong></a>
+                </div>
+
+            </body>
+        </head>
+
+    </html>

@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: rgb(1, 130, 153);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+.nav {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    border-radius: 7px;
+    border-style: ridge;
+    border-width: 1px;
+    border-color: rgb(1, 130, 153);
+}
+
+.nav img {
+    display: block;
+    width: 20%;
+    margin-left: 5px;
+    float: left;
+}
+
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: rgb(1, 130, 153);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Page Heading */
+h1, h3 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 32px;
+    color: rgb(1, 130, 153);    /* optional, to reduce extra space on top */
+}
+
+/* Container Cards */
+.container {
+    justify-content: center;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uplcontainer {
+    max-width: 700px;  /* match your form width or slightly more */
+    width: 90%;        /* optional for responsiveness */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;     /* optional, for some inner spacing */
+}
+
+/*Search results boxes*/
+.search-results {
+    display: flex;
+    flex-direction: column;   /* stack vertically */
+    align-items: center;      /* center the cards */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+/* Cards for Material Types */
+.card {
+    width: 280px;
+    border: 2px solid rgb(1, 130, 153);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid rgb(1, 130, 153);
+    border-radius: 6px;
+    background-color: #cce7ff;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.card button:hover {
+    background-color: #b3daff;
+}
+
+.search-results .card {
+    width: 90%;
+    max-width: 900px;
+    border: 2px solid rgb(1, 130, 153);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;          /* align content to the left */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+
+/* Card Descriptions */
+.desc ul {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.desc ul li {
+    color: rgb(0, 102, 153);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.search-results .desc ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.search-results .desc ul li {
+    margin-bottom: 6px;
+}
+
+/* Upload Form Container */
+form {
+    max-width: 700px;
+    border: 2px solid rgb(1, 130, 153);
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Form Labels and Inputs */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid rgb(1, 130, 153);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+/* Form Layout Rows */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row > div {
+    flex: 1;
+}
+
+/* Submit Button */
+.upload-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-top: 20px;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
+}

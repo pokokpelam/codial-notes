@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORDIAL: Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
+    <link rel="stylesheet" href="stylee.css">
+</head>
+
+<body>
+    <div class="nav">
+        <img src="cordial logo.png" alt="logo">
+        <div>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="upload.php">Upload</a>
+            <a href="search.html">Search</a>
+            <a href="logout.php">Logout</a>
+            <a href="approve.html">EduApprove</a>
+        </div>
+    </div>
+
+    <h2 class="fade-up" style="text-align: center;">Search for a Material</h2>
+    <div  style="text-align:center; margin-top: 30px;">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by subject, title, or user"
+            style="padding:10px; width: 300px; border: 2px solid rgb(1, 130, 153); border-radius: 5px;"
+        />
+        <button
+            type="button"
+            onclick="search()"
+            style="padding: 10px 20px; 
+            margin-left: 10px; 
+            border: none; 
+            background-color: rgb(1, 130, 153); 
+            color: white; border-radius: 5px; cursor: pointer;"
+            >Search</button>
+    </div>
+
+    <div class="search-results fade-up" id="resultsContainer"></div>
+
+    <script>
+        function search() {
+            console.log("Search triggered");
+            const input = document.getElementById("searchInput").value;
+            console.log("Searching for:", input);
+
+            fetch(`search.php?subject=${encodeURIComponent(input)}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data received:", data);
+
+                    const container = document.getElementById("resultsContainer");
+                    container.innerHTML = "";
+
+                    if (data.length === 0) {
+                        container.innerHTML = "<p>No results found.</p>";
+                        return;
+                    }
+
+                    data.forEach(item => {
+                        container.innerHTML += `
+                            <div class="card">
+                                <h3>${item.title}</h3>
+                                <div class="desc">
+                                    <ul>
+                                        <li>Level: ${item.edu_level || 'N/A'}</li>
+                                        <li>Subject: ${item.subject || 'N/A'}</li>
+                                        <li>Type: ${item.materialType || 'N/A'}</li>
+                                        <li>Field: ${item.field || 'N/A'}</li>
+                                        <li>Description: ${item.shortdesc}</li>
+                                        <li>Date Uploaded: ${item.date}</li>
+                                        <li>Likes: <span id="likes-${item.materialID}">${item.likeCount}</span></li>
+                                    </ul>
+                                </div>
+                                <a href="uploads/${item.file_name}" download>
+                                    <button>Download</button>
+                                </a>
+                                <button id="like-btn-${item.materialID}" onclick="likeMaterial(${item.materialID})">Like</button>
+
+                            </div>
+                        `;
+                    });
+                })
+                .catch(err => {
+                    console.error("Fetch error:", err);
+                    const container = document.getElementById("resultsContainer");
+                    container.innerHTML = "<p>Error fetching results.</p>";
+                });
+        }
+
+        function likeMaterial(id) {
+        fetch(`like.php?id=${id}`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            if (data.likeCount) {
+                document.getElementById(`likes-${id}`).innerText = data.likeCount;
+            } else {
+                console.error("Error updating like:", data.error || data);
+            }
+        })
+        .catch(error => console.error("Fetch error:", error));
+}
+
+    </script>
+</body>
+</html>

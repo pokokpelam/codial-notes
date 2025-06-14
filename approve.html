@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CORDIAL: Approve</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
+    <link rel="stylesheet" href="stylee.css">
+</head>
+<body>
+    <div class="nav">
+        <img src="cordial logo.png" alt="logo">
+        <div>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="upload.php">Upload</a>
+            <a href="search.html">Search</a>
+            <a href="logout.php">Logout</a>
+            <a href="approve.php">EduApprove</a>
+        </div>
+    </div>
+
+    <div class="uplcontainer">
+        <h2 style="text-align: center;">Apply for Student or Educator Role</h2>
+
+        <form action="addApproval.php" method="POST" enctype="multipart/form-data">
+            <label for="role">Select Role</label>
+            <select id="role" name="role" required onchange="toggleFields()">
+                <option value="">-- Select Role --</option>
+                <option value="student">Student</option>
+                <option value="educator">Educator</option>
+            </select>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <div id="commonFields" style="display: none;">
+                <label for="school">Current Institute</label>
+                <input type="text" id="school" name="school" required>
+
+                <label for="document" id="documentLabel">Upload Document</label>
+                <input type="file" id="document" name="document" accept="image/*" required>
+                <input type="submit" value="Submit Application" class="upload-btn">
+                
+            </div>
+            <br><br>
+        </form>
+    </div>
+
+    <script>
+        function toggleFields() {
+            const role = document.getElementById('role').value;
+            const label = document.getElementById('documentLabel');
+            const commonFields = document.getElementById('commonFields');
+
+            if (role === "student") {
+                label.textContent = "Upload Student Card";
+                commonFields.style.display = "block";
+            } else if (role === "educator") {
+                label.textContent = "Upload Teaching Certificate/ID";
+                commonFields.style.display = "block";
+            } else {
+                commonFields.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
