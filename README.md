@@ -1,2 +1,2 @@
-# codial-notes
+# cordial-notes
 Web-based notes resource system
