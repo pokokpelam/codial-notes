@@ -3,9 +3,11 @@
 Cordial Notes is a simple CRUD web-based notes resource system. 
 
 Languages: HTML, CSS, PHP, JavaScript, SQL.
+
 Softwares used: 1) Visual Studio Code - Programming
                 2) Figma - UI/UX Designing
                 3) PHPMyAdmin - Database
+                4) XAMPP - Local hosting
 
 The User Interface contains functions such as:
 
